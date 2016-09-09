@@ -1,0 +1,188 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>de.dfki.tarot.thirdparty</groupId>
+  <artifactId>mrcp4j</artifactId>
+  <packaging>jar</packaging>
+  <name>MRCP4J</name>
+  <version>0.2-dfki-SNAPSHOT</version>
+  <description>MRCP4J provides a Java API that encapsulates the MRCPv2 protocol and can be used to implement MRCP clients and/or servers.</description>
+  <url>http://${project.artifactId}.sourceforge.net</url>
+  <inceptionYear>2005</inceptionYear>
+
+  <mailingLists>
+    <mailingList>
+      <name>${project.artifactId}-checkin</name>
+      <subscribe>http://lists.sourceforge.net/lists/listinfo/${project.artifactId}-checkin</subscribe>
+      <unsubscribe>http://lists.sourceforge.net/lists/listinfo/${project.artifactId}-checkin</unsubscribe>
+      <!--post>${project.artifactId}-checkin@lists.sourceforge.net</post-->
+      <archive>http://sourceforge.net/mailarchive/forum.php?forum=${project.artifactId}-checkin</archive>
+    </mailingList>
+    <mailingList>
+      <name>${project.artifactId}-dev</name>
+      <subscribe>http://lists.sourceforge.net/lists/listinfo/${project.artifactId}-developer</subscribe>
+      <unsubscribe>http://lists.sourceforge.net/lists/listinfo/${project.artifactId}-developer</unsubscribe>
+      <post>${project.artifactId}-developer@lists.sourceforge.net</post>
+      <archive>http://www.nabble.com/${project.artifactId}-dev-f15704.html</archive>
+    </mailingList>
+    <mailingList>
+      <name>${project.artifactId}-user</name>
+      <subscribe>http://lists.sourceforge.net/lists/listinfo/${project.artifactId}-user</subscribe>
+      <unsubscribe>http://lists.sourceforge.net/lists/listinfo/${project.artifactId}-user</unsubscribe>
+      <post>${project.artifactId}-user@lists.sourceforge.net</post>
+      <archive>http://www.nabble.com/${project.artifactId}-user-f15703.html</archive>
+    </mailingList>
+  </mailingLists>
+
+  <developers>
+    <developer>
+      <id>ngodfredsen</id>
+      <name>Niels Godfredsen</name>
+      <email>ngodfredsen@users.sourceforge.net</email>
+      <url>http://sourceforge.net/users/ngodfredsen</url>
+      <roles>
+        <role>Project Administrator</role>
+        <role>Java Developer</role>
+      </roles>
+      <timezone>-8</timezone>
+    </developer>
+    <developer>
+      <id>vtyarla</id>
+      <name>Vikram Tyarla</name>
+      <email>vtyarla@users.sourceforge.net</email>
+      <url>http://sourceforge.net/users/vtyarla</url>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+      <timezone>-8</timezone>
+    </developer>
+    <developer>
+      <id>salord</id>
+      <name>Spencer Lord</name>
+      <email>salord@users.sourceforge.net</email>
+      <url>http://sourceforge.net/users/salord</url>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+      <timezone>-8</timezone>
+    </developer>
+  </developers>
+
+  <licenses>
+    <license>
+      <name>GNU Library or Lesser General Public License (LGPL)</name>
+      <url>http://www.gnu.org/copyleft/lesser.txt</url>
+    </license>
+  </licenses>
+
+  <properties>
+    <project.group.id>143504</project.group.id>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <scm>
+    <connection>scm:svn:https://svn.sourceforge.net/svnroot/${project.artifactId}/${project.artifactId}/trunk</connection>
+    <developerConnection>scm:svn:https://svn.sourceforge.net/svnroot/${project.artifactId}/${project.artifactId}/trunk</developerConnection>
+    <!--tag>HEAD</tag-->
+    <url>http://svn.sourceforge.net/viewvc/${project.artifactId}</url>
+  </scm>
+
+  <organization>
+    <name>SpeechForge</name>
+    <url>http://www.speechforge.org</url>
+  </organization>
+
+  <build>
+    <directory>target</directory>
+    <outputDirectory>target/classes</outputDirectory>
+    <finalName>${project.artifactId}-${project.version}</finalName>
+    <testOutputDirectory>target/test-classes</testOutputDirectory>
+    <sourceDirectory>src/main/java</sourceDirectory>
+    <scriptSourceDirectory>src/main/scripts</scriptSourceDirectory>
+    <testSourceDirectory>src/test/java</testSourceDirectory>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+    </resources>
+    <testResources>
+      <testResource>
+        <directory>src/test/resources</directory>
+      </testResource>
+    </testResources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+          <source>1.5</source>
+          <target>1.5</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>2.0.1</version>
+        <configuration>
+          <locales>en</locales>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.9</version>
+        <configuration>
+          <destDir>${project.build.directory}/site/docs/apidocs</destDir>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <configuration>
+          <descriptors>
+            <descriptor>settings/assembly/bin.xml</descriptor>
+            <descriptor>settings/assembly/src.xml</descriptor>
+          </descriptors>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>directory-network</groupId>
+      <artifactId>mina</artifactId>
+      <version>0.8.0</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.1</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+
+  <distributionManagement>
+    <repository>
+      <uniqueVersion>false</uniqueVersion>
+      <id>mrcp4j-repository</id>
+      <name>MRCP4J Deployment Repository</name>
+      <url>scp://shell.sf.net/home/groups/m/mr/mrcp4j/htdocs/repository</url>
+    </repository>
+    <site>
+      <id>mrcp4j-site</id>
+      <!--url>scp://shell.sf.net/home/groups/${project.artifactId.substring(0,1)}/${project.artifactId.substring(0,2)}/${project.artifactId}/htdocs/</url-->
+      <url>scp://shell.sf.net/home/groups/m/mr/mrcp4j/htdocs</url>
+    </site>
+    <downloadUrl>https://sourceforge.net/project/showfiles.php?group_id=${project.group.id}</downloadUrl>
+  </distributionManagement>
+
+</project>
